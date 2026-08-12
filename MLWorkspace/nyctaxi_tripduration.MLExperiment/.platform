@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "MLExperiment",
+    "displayName": "nyctaxi_tripduration"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c2d841ed-a403-896d-44ab-64dd329e89a4"
+  }
+}

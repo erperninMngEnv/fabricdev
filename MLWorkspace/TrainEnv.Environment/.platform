@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Environment",
+    "displayName": "TrainEnv",
+    "description": "Environment"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "083b8463-5369-946a-400b-c7b2dee84bec"
+  }
+}
