@@ -1,0 +1,64 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "7c8dd1e5-5f0c-4b1b-8f0c-e7c5fddc8af1",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "CustomerKey",
+        "targetPropertyId": "4131646165644479745"
+      },
+      {
+        "sourceColumnName": "CustomerCityName",
+        "targetPropertyId": "4131646286282840375"
+      },
+      {
+        "sourceColumnName": "CustomerCountryName",
+        "targetPropertyId": "4131646266563920644"
+      },
+      {
+        "sourceColumnName": "CustomerID",
+        "targetPropertyId": "4131646193081348706"
+      },
+      {
+        "sourceColumnName": "CustomerName",
+        "targetPropertyId": "4131646217785395803"
+      },
+      {
+        "sourceColumnName": "CustomerPostalCode",
+        "targetPropertyId": "4131646356247589246"
+      },
+      {
+        "sourceColumnName": "CustomerRegionName",
+        "targetPropertyId": "4131646335962098524"
+      },
+      {
+        "sourceColumnName": "CustomerSegmentName",
+        "targetPropertyId": "4131646240659549831"
+      },
+      {
+        "sourceColumnName": "CustomerStateName",
+        "targetPropertyId": "4131646307377908115"
+      },
+      {
+        "sourceColumnName": "InsertDate",
+        "targetPropertyId": "4131646445060764698"
+      },
+      {
+        "sourceColumnName": "IsCurrent",
+        "targetPropertyId": "4131646377990406487"
+      },
+      {
+        "sourceColumnName": "UpdateDate",
+        "targetPropertyId": "4131646467828627557"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00000000-0000-0000-0000-000000000000",
+      "itemId": "8c5833d2-f7b4-895e-4a56-4f99f91e95a3",
+      "sourceTableName": "dcustomer",
+      "sourceSchema": "dbo"
+    }
+  }
+}

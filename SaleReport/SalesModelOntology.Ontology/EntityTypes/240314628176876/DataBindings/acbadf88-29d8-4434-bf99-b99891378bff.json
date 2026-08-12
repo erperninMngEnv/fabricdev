@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "acbadf88-29d8-4434-bf99-b99891378bff",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "ReceiptLineId",
+        "targetPropertyId": "4131646509489763407"
+      },
+      {
+        "sourceColumnName": "OrderNumber",
+        "targetPropertyId": "4131646531999581086"
+      },
+      {
+        "sourceColumnName": "OrderDateKey",
+        "targetPropertyId": "4131646555285308756"
+      },
+      {
+        "sourceColumnName": "ShipDateKey",
+        "targetPropertyId": "4131646576612609314"
+      },
+      {
+        "sourceColumnName": "CustomerKey",
+        "targetPropertyId": "4131646596773890180"
+      },
+      {
+        "sourceColumnName": "ProductKey",
+        "targetPropertyId": "4131646616951547585"
+      },
+      {
+        "sourceColumnName": "SalesAmountUSD",
+        "targetPropertyId": "4131646639676892431"
+      },
+      {
+        "sourceColumnName": "DiscountAmountUSD",
+        "targetPropertyId": "4131646666750487819"
+      },
+      {
+        "sourceColumnName": "ProfitAmountUSD",
+        "targetPropertyId": "4131646687661977639"
+      },
+      {
+        "sourceColumnName": "DiscountPercentage",
+        "targetPropertyId": "4131646709762793033"
+      },
+      {
+        "sourceColumnName": "Quantity",
+        "targetPropertyId": "4131646729694458959"
+      },
+      {
+        "sourceColumnName": "InsertDate",
+        "targetPropertyId": "4131646752282761199"
+      },
+      {
+        "sourceColumnName": "UpdateDate",
+        "targetPropertyId": "4131646771368410957"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00000000-0000-0000-0000-000000000000",
+      "itemId": "8c5833d2-f7b4-895e-4a56-4f99f91e95a3",
+      "sourceTableName": "freceiptline",
+      "sourceSchema": "dbo"
+    }
+  }
+}

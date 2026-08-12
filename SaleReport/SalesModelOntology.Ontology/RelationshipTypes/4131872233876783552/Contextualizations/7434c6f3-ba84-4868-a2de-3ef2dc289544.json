@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/contextualization/1.0.0/schema.json",
+  "id": "7434c6f3-ba84-4868-a2de-3ef2dc289544",
+  "dataBindingTable": {
+    "workspaceId": "00000000-0000-0000-0000-000000000000",
+    "itemId": "8c5833d2-f7b4-895e-4a56-4f99f91e95a3",
+    "sourceTableName": "freceiptline",
+    "sourceSchema": "dbo",
+    "sourceType": "LakehouseTable"
+  },
+  "sourceKeyRefBindings": [
+    {
+      "sourceColumnName": "OrderDateKey",
+      "targetPropertyId": "4131646509489763407"
+    }
+  ],
+  "targetKeyRefBindings": [
+    {
+      "sourceColumnName": "OrderDateKey",
+      "targetPropertyId": "4131647056241427597"
+    }
+  ]
+}
