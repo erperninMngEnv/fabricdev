@@ -1,0 +1,398 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data1",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "AISkillHouse",
+                "properties": {
+                  "annotations": [],
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "workspaceId": "878900d9-0ecd-4c31-80c5-96d9f8b31b9f",
+                    "artifactId": "f441b869-2841-4fe0-8882-8c2e27766658",
+                    "rootFolder": "Tables"
+                  }
+                }
+              },
+              "type": "LakehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "table": "dimcustomer"
+              }
+            }
+          },
+          "sink": {
+            "type": "IcebergSink",
+            "storeSettings": {
+              "type": "AzureBlobFSWriteSettings"
+            },
+            "formatSettings": {
+              "type": "IcebergWriteSettings"
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "type": "Iceberg",
+              "typeProperties": {
+                "location": {
+                  "type": "AzureBlobFSLocation",
+                  "folderPath": "icebergfact",
+                  "fileSystem": "raw"
+                }
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "04d50d73-e33c-46c2-9a18-f629932d74ba"
+              }
+            }
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "CustomerKey",
+                  "type": "Int32",
+                  "physicalType": "integer"
+                },
+                "sink": {
+                  "name": "CustomerKey",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "GeographyKey",
+                  "type": "Int32",
+                  "physicalType": "integer"
+                },
+                "sink": {
+                  "name": "GeographyKey",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "CustomerAlternateKey",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "CustomerAlternateKey",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "Title",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "Title",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "FirstName",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "FirstName",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "MiddleName",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "MiddleName",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "LastName",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "LastName",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "NameStyle",
+                  "type": "Boolean",
+                  "physicalType": "boolean"
+                },
+                "sink": {
+                  "name": "NameStyle",
+                  "physicalType": "boolean"
+                }
+              },
+              {
+                "source": {
+                  "name": "BirthDate",
+                  "type": "Date",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "BirthDate",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "MaritalStatus",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "MaritalStatus",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "Suffix",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "Suffix",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "Gender",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "Gender",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "EmailAddress",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "EmailAddress",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "YearlyIncome",
+                  "type": "Decimal",
+                  "physicalType": "decimal",
+                  "scale": 2,
+                  "precision": 8
+                },
+                "sink": {
+                  "name": "YearlyIncome",
+                  "physicalType": "decimal",
+                  "scale": 2,
+                  "precision": 8
+                }
+              },
+              {
+                "source": {
+                  "name": "TotalChildren",
+                  "type": "Int16",
+                  "physicalType": "short"
+                },
+                "sink": {
+                  "name": "TotalChildren"
+                }
+              },
+              {
+                "source": {
+                  "name": "NumberChildrenAtHome",
+                  "type": "Int16",
+                  "physicalType": "short"
+                },
+                "sink": {
+                  "name": "NumberChildrenAtHome"
+                }
+              },
+              {
+                "source": {
+                  "name": "EnglishEducation",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "EnglishEducation",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "SpanishEducation",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SpanishEducation",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "FrenchEducation",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "FrenchEducation",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "EnglishOccupation",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "EnglishOccupation",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "SpanishOccupation",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SpanishOccupation",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "FrenchOccupation",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "FrenchOccupation",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "HouseOwnerFlag",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "HouseOwnerFlag",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "NumberCarsOwned",
+                  "type": "Int16",
+                  "physicalType": "short"
+                },
+                "sink": {
+                  "name": "NumberCarsOwned"
+                }
+              },
+              {
+                "source": {
+                  "name": "AddressLine1",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "AddressLine1",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "AddressLine2",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "AddressLine2",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "Phone",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "Phone",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "DateFirstPurchase",
+                  "type": "Date",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "DateFirstPurchase",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "CommuteDistance",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "CommuteDistance",
+                  "physicalType": "string"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

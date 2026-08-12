@@ -1,0 +1,38 @@
+[
+  {
+    "name": "icebergcustomerdim",
+    "path": "/Tables",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "04d50d73-e33c-46c2-9a18-f629932d74ba",
+        "location": "https://interpdatalake.dfs.core.windows.net",
+        "subpath": "/raw/icebergfact"
+      }
+    }
+  },
+  {
+    "name": "icebergcustomerdim",
+    "path": "/Files",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "04d50d73-e33c-46c2-9a18-f629932d74ba",
+        "location": "https://interpdatalake.dfs.core.windows.net",
+        "subpath": "/raw/icebergfact"
+      }
+    }
+  },
+  {
+    "name": "DynamicsData",
+    "path": "/Files",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "04d50d73-e33c-46c2-9a18-f629932d74ba",
+        "location": "https://interpdatalake.dfs.core.windows.net",
+        "subpath": "/raw/DynamicsData"
+      }
+    }
+  }
+]
