@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "AISkillHouse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3cd1c4e8-6624-9d24-464a-4c5bc7e30f96"
+  }
+}
