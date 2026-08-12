@@ -1,0 +1,4 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/stageConfiguration/1.0.0/schema.json",
+  "aiInstructions": "The AdventureWorksLH data source contains information from three tables:\n\ndimcustomer, for detailed customer demographics and contact information\ndimdate, for date-related data - for example, calendar and fiscal information\ndimgeography, for geographical details including city names and country region codes.\nUse this data source for queries and analyses that involve customer details, time-based events, and geographical locations.\n\nIf asked for sales or sales development use SalesAmount in factinternetsales"
+}
