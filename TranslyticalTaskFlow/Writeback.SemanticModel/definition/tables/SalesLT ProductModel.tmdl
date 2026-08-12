@@ -1,0 +1,55 @@
+table 'SalesLT ProductModel'
+	lineageTag: 4f6379af-3a7e-40e4-ba10-5c014645378b
+
+	column ProductModelID
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 44f9c3f3-dbab-4f18-b7df-1940ccb3a2f2
+		summarizeBy: none
+		sourceColumn: ProductModelID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: nvarchar(50)
+		lineageTag: f2f7f715-1db8-474e-9ae1-dce6de7c0133
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		isNullable: false
+		sourceProviderType: uniqueidentifier
+		lineageTag: c66df083-d255-4fd6-a952-972927927e28
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		isNullable: false
+		formatString: General Date
+		sourceProviderType: datetime
+		lineageTag: c15c92ac-49bc-4747-9242-452995abfd74
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'SalesLT ProductModel' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("fswadvgwtrduradgo2mqmigfdi-l4tcuzlmyxhu7cds4qgrawegvq.database.fabric.microsoft.com", "translyticaldb-ea0c39e3-0bdf-4cb3-846f-6b62b8c23b98"),
+				    SalesLT_ProductModel = Source{[Schema="SalesLT",Item="ProductModel"]}[Data]
+				in
+				    SalesLT_ProductModel
+
+	annotation PBI_ResultType = Table
+

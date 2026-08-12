@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "UserDataFunction",
+    "displayName": "translyticaludf"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "018ddb7f-35c2-91c3-4632-031afe46d918"
+  }
+}

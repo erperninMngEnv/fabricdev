@@ -1,0 +1,101 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "d9f717069075d22d3d5d",
+  "position": {
+    "x": 336.07713634838507,
+    "y": 78.933371006763565,
+    "z": 3000,
+    "height": 406.87304642661627,
+    "width": 943.94546770974978,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SalesLT ProductModel"
+                    }
+                  },
+                  "Property": "Name"
+                }
+              },
+              "queryRef": "SalesLT ProductModel.Name",
+              "nativeQueryRef": "Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SalesLT ProductDescription"
+                    }
+                  },
+                  "Property": "Description"
+                }
+              },
+              "queryRef": "SalesLT ProductDescription.Description",
+              "nativeQueryRef": "Description"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SalesLT ProductDescription"
+                    }
+                  },
+                  "Property": "ModifiedDate"
+                }
+              },
+              "queryRef": "SalesLT ProductDescription.ModifiedDate",
+              "nativeQueryRef": "ModifiedDate"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "SalesLT ProductDescription"
+                  }
+                },
+                "Property": "Description"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "587.458700882117D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "SalesLT ProductDescription.Description"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "05dabf50a8693a696756",
+  "position": {
+    "x": 63.472195242552139,
+    "y": 78.933371006763565,
+    "z": 0,
+    "height": 406.87304642661627,
+    "width": 284.81113249863142,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SalesLT ProductModel"
+                    }
+                  },
+                  "Property": "Name"
+                }
+              },
+              "queryRef": "SalesLT ProductModel.Name",
+              "nativeQueryRef": "Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SalesLT ProductModelProductDescription"
+                    }
+                  },
+                  "Property": "ProductModelID"
+                }
+              },
+              "queryRef": "SalesLT ProductModelProductDescription.ProductModelID",
+              "nativeQueryRef": "ProductModelID"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "SalesLT ProductModelProductDescription"
+                  }
+                },
+                "Property": "ProductModelID"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "103.22935064344188D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "SalesLT ProductModel.Name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "120.1215195957218D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "SalesLT ProductModelProductDescription.ProductModelID"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

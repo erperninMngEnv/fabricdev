@@ -1,0 +1,18 @@
+model Model
+	culture: en-GB
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-SE
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["SalesLT ProductDescription","SalesLT ProductModel","SalesLT ProductModelProductDescription"]
+
+ref table 'SalesLT ProductDescription'
+ref table 'SalesLT ProductModel'
+ref table 'SalesLT ProductModelProductDescription'
+
+ref cultureInfo en-GB
+
