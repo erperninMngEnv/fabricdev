@@ -1,0 +1,142 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "ParquetSource",
+            "storeSettings": {
+              "type": "AzureBlobFSReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "ParquetReadSettings"
+            },
+            "datasetSettings": {
+              "type": "Parquet",
+              "typeProperties": {
+                "location": {
+                  "type": "AzureBlobFSLocation",
+                  "fileSystem": "adventureworks",
+                  "fileName": "SalesLTProductModelProductDescription"
+                },
+                "compressionCodec": "snappy"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "0ed5d12b-0b27-4e86-9eed-e3028c0a2f55"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "FabricSqlDatabaseSink",
+            "sqlWriterUseTableLock": false,
+            "writeBehavior": "insert",
+            "datasetSettings": {
+              "type": "FabricSqlDatabaseTable",
+              "typeProperties": {
+                "schema": "SalesLT",
+                "table": "ProductModelProductDescription"
+              },
+              "schema": [],
+              "connectionSettings": {
+                "name": "translyticaldb",
+                "properties": {
+                  "type": "FabricSqlDatabase",
+                  "typeProperties": {
+                    "artifactId": "b8c23b98-6b62-846f-4cb3-0bdfea0c39e3",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000"
+                  },
+                  "externalReferences": {
+                    "connection": "a92da374-10d3-4d29-ba48-c448863d0df2"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "ProductModelID",
+                  "type": "Int32",
+                  "physicalType": "INT32"
+                },
+                "sink": {
+                  "name": "ProductModelID",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "ProductDescriptionID",
+                  "type": "Int32",
+                  "physicalType": "INT32"
+                },
+                "sink": {
+                  "name": "ProductDescriptionID",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "Culture",
+                  "type": "String",
+                  "physicalType": "STRING"
+                },
+                "sink": {
+                  "name": "Culture",
+                  "physicalType": "nchar",
+                  "length": "6"
+                }
+              },
+              {
+                "source": {
+                  "name": "rowguid",
+                  "type": "String",
+                  "physicalType": "STRING"
+                },
+                "sink": {
+                  "name": "rowguid",
+                  "physicalType": "uniqueidentifier"
+                }
+              },
+              {
+                "source": {
+                  "name": "ModifiedDate",
+                  "type": "DateTime",
+                  "physicalType": "INT96"
+                },
+                "sink": {
+                  "name": "ModifiedDate",
+                  "physicalType": "datetime"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy data1",
+        "dependsOn": []
+      }
+    ]
+  }
+}

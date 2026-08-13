@@ -1,0 +1,150 @@
+/// factReceiptLine: A transactional fact table storing sales data at the receipt line level. Each row represents one item sold on a receipt, containing measures (DiscountAmount, DiscountPercentage, ProfitAmount, Quantity, SalesAmount) and foreign keys to dimensions (product, date, customer). Grain: one row per receipt line item.
+table factReceiptline
+	lineageTag: c8ab0ac4-cbc0-4c7b-9e24-85deec886cae
+	sourceLineageTag: [dbo].[freceiptline]
+
+	column ReceiptLineId
+		dataType: int64
+		formatString: 0
+		lineageTag: aa39d506-30b4-4fc3-82e6-771a2fe02635
+		sourceLineageTag: ReceiptLineId
+		summarizeBy: count
+		sourceColumn: ReceiptLineId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderNumber
+		dataType: string
+		lineageTag: 1f68c078-b19e-462d-8762-3bd55a0c9375
+		sourceLineageTag: OrderNumber
+		summarizeBy: none
+		sourceColumn: OrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: c65d4071-5133-45be-a8a6-48153ccdc18e
+		sourceLineageTag: OrderDateKey
+		summarizeBy: none
+		sourceColumn: OrderDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShipDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 62fbb4d3-a89b-42bc-802a-5c743cbf8d04
+		sourceLineageTag: ShipDateKey
+		summarizeBy: count
+		sourceColumn: ShipDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e442d38-1aa1-4da4-9884-ac9dac509481
+		sourceLineageTag: CustomerKey
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d969f70-7206-40a8-a044-36bc90f745d6
+		sourceLineageTag: ProductKey
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesAmountUSD
+		dataType: double
+		lineageTag: 74f3c7fd-b421-41d6-a1c2-3957e4f35cb6
+		sourceLineageTag: SalesAmountUSD
+		summarizeBy: sum
+		sourceColumn: SalesAmountUSD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DiscountAmountUSD
+		dataType: double
+		lineageTag: 796b13ea-e6bc-47aa-a5f5-b99559b7d8f1
+		sourceLineageTag: DiscountAmountUSD
+		summarizeBy: sum
+		sourceColumn: DiscountAmountUSD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ProfitAmountUSD
+		dataType: double
+		lineageTag: 83f883a3-101e-421f-b956-69bd78114c29
+		sourceLineageTag: ProfitAmountUSD
+		summarizeBy: sum
+		sourceColumn: ProfitAmountUSD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DiscountPercentage
+		dataType: double
+		lineageTag: 8908f6d1-7e15-4c7b-b595-ad27e29e566b
+		sourceLineageTag: DiscountPercentage
+		summarizeBy: sum
+		sourceColumn: DiscountPercentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Quantity
+		dataType: double
+		lineageTag: ed1ea9c8-1b83-4a1a-a998-26beafe87b81
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column InsertDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bf244a99-0b06-4811-b646-8daa08495ac8
+		sourceLineageTag: InsertDate
+		summarizeBy: none
+		sourceColumn: InsertDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column UpdateDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c9a387e9-cfcd-480f-8acd-36f29d597577
+		sourceLineageTag: UpdateDate
+		summarizeBy: none
+		sourceColumn: UpdateDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition factReceiptline = entity
+		mode: directLake
+		source
+			entityName: freceiptline
+			schemaName: dbo
+			expressionSource: 'DirectLake - SalesReportLakehouse'
+
+	changedProperty = Description
+
+	changedProperty = Name
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "MLModel",
+    "displayName": "nyctaxi_tripduration_lightgbm"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "fee23584-3258-8e6e-4da6-5e236e4bdac9"
+  }
+}

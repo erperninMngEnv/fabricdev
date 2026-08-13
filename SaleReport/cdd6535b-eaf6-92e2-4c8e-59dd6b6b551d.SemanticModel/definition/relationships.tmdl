@@ -1,0 +1,12 @@
+relationship e3db3bf3-9331-bccb-1be1-cbbfdaf1daac
+	fromColumn: factReceiptline.CustomerKey
+	toColumn: dimCustomer.CustomerKey
+
+relationship 44da4e74-a630-98af-b04a-77232d1e5d5d
+	fromColumn: factReceiptline.OrderDateKey
+	toColumn: dimDate.DateKey
+
+relationship a691d21e-a07c-24ec-96f1-004573f026d4
+	fromColumn: factReceiptline.ProductKey
+	toColumn: dimProduct.ProductKey
+

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "05dabf50a8693a696756",
   "position": {
     "x": 63.472195242552139,
@@ -93,6 +93,11 @@
           "selector": {
             "metadata": "SalesLT ProductModelProductDescription.ProductModelID"
           }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
         }
       ]
     },

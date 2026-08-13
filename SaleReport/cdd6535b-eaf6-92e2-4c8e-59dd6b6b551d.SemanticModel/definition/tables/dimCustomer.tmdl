@@ -1,0 +1,148 @@
+/// dimCustomer: An SCD Type 2 customer dimension containing one row per customer per historical version. Stores customer identity (CustomerID, CustomerName), segmentation (CustomerSegmentName), geographic hierarchy (Country → Region → State → City → PostalCode), and change-tracking columns (IsCurrent, ValidFrom, ValidTo). Used as the primary customer dimension across fact tables to enable customer-level filtering, geographic analysis, and point-in-time reporting.
+table dimCustomer
+	lineageTag: 29e6850d-12c3-4adb-938e-5aa45fc29f7c
+	sourceLineageTag: [dbo].[dcustomer]
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 81d2c801-1220-4cb4-b77d-0c65482d7b6f
+		sourceLineageTag: CustomerKey
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerID
+		dataType: string
+		lineageTag: 16861494-8f11-412f-bdc2-6aecbe2f2cd0
+		sourceLineageTag: CustomerID
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerName
+		dataType: string
+		lineageTag: 7df8dc13-c1a2-40c2-9b4e-91dcc700995f
+		sourceLineageTag: CustomerName
+		summarizeBy: none
+		sourceColumn: CustomerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerSegmentName
+		dataType: string
+		lineageTag: db639d3d-0f58-4d5f-9b98-c21192ccfbf4
+		sourceLineageTag: CustomerSegmentName
+		summarizeBy: none
+		sourceColumn: CustomerSegmentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerCountryName
+		dataType: string
+		lineageTag: cb1ed27f-899a-44c1-b2b8-3311c28d0741
+		sourceLineageTag: CustomerCountryName
+		summarizeBy: none
+		sourceColumn: CustomerCountryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerCityName
+		dataType: string
+		lineageTag: 481ed0d7-59aa-4f94-b57e-7835ffd6ff42
+		sourceLineageTag: CustomerCityName
+		summarizeBy: none
+		sourceColumn: CustomerCityName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerStateName
+		dataType: string
+		lineageTag: 1119a8da-7be9-4cfe-9b4a-8bd7aa59d8e8
+		sourceLineageTag: CustomerStateName
+		summarizeBy: none
+		sourceColumn: CustomerStateName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerRegionName
+		dataType: string
+		lineageTag: fc1ba82d-a6d2-4752-b8c3-6969cc2ebfd2
+		sourceLineageTag: CustomerRegionName
+		summarizeBy: none
+		sourceColumn: CustomerRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerPostalCode
+		dataType: string
+		lineageTag: 137f56f0-6dc3-4cb9-a05e-654fa0787bff
+		sourceLineageTag: CustomerPostalCode
+		summarizeBy: none
+		sourceColumn: CustomerPostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCurrent
+		dataType: int64
+		formatString: 0
+		lineageTag: 92623923-08a4-40b3-a70f-55f070c8066c
+		sourceLineageTag: IsCurrent
+		summarizeBy: none
+		sourceColumn: IsCurrent
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValidFrom
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2d9bb715-8af8-4fe5-b52d-9904481720b0
+		sourceLineageTag: ValidFrom
+		summarizeBy: none
+		sourceColumn: ValidFrom
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValidTo
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3416e294-e735-45b0-bae3-068d6f777b65
+		sourceLineageTag: ValidTo
+		summarizeBy: none
+		sourceColumn: ValidTo
+
+		annotation SummarizationSetBy = Automatic
+
+	column InsertDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f6cfb16e-b253-4460-86a3-350145c34db2
+		sourceLineageTag: InsertDate
+		summarizeBy: none
+		sourceColumn: InsertDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column UpdateDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 44f8bb83-7dd8-4175-a71c-1ed4a47d600b
+		sourceLineageTag: UpdateDate
+		summarizeBy: none
+		sourceColumn: UpdateDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimCustomer = entity
+		mode: directLake
+		source
+			entityName: dcustomer
+			schemaName: dbo
+			expressionSource: 'DirectLake - SalesReportLakehouse'
+
+	changedProperty = Name
+
+	changedProperty = Description
+
