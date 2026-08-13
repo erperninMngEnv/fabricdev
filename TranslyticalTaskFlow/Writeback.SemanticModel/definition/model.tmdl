@@ -10,6 +10,8 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_QueryOrder = ["SalesLT ProductDescription","SalesLT ProductModel","SalesLT ProductModelProductDescription"]
 
+annotation PBI_ProTooling = ["DaxQueryView_Desktop"]
+
 ref table 'SalesLT ProductDescription'
 ref table 'SalesLT ProductModel'
 ref table 'SalesLT ProductModelProductDescription'
