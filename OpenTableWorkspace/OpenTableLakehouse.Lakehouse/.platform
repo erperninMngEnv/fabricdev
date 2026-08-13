@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "OpenTableLakehouse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "633fa6d9-39eb-b47d-44ff-414165eb71f9"
+  }
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "salesdemo",
+    "path": "/Tables",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "0ed5d12b-0b27-4e86-9eed-e3028c0a2f55",
+        "location": "https://interpdatalakestg.dfs.core.windows.net",
+        "subpath": "/raw/salesdemo"
+      }
+    }
+  },
+  {
+    "name": "icebergfact",
+    "path": "/Tables",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "0ed5d12b-0b27-4e86-9eed-e3028c0a2f55",
+        "location": "https://interpdatalakestg.dfs.core.windows.net",
+        "subpath": "/raw/icebergfact"
+      }
+    }
+  },
+  {
+    "name": "icebergfact",
+    "path": "/Files",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "0ed5d12b-0b27-4e86-9eed-e3028c0a2f55",
+        "location": "https://interpdatalakestg.dfs.core.windows.net",
+        "subpath": "/raw/icebergfact"
+      }
+    }
+  },
+  {
+    "name": "DynamicsData",
+    "path": "/Files",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "0ed5d12b-0b27-4e86-9eed-e3028c0a2f55",
+        "location": "https://interpdatalakestg.dfs.core.windows.net",
+        "subpath": "/raw/DynamicsData"
+      }
+    }
+  }
+]
