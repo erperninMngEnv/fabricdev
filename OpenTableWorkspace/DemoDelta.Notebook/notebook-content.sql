@@ -8,12 +8,12 @@
 -- META   },
 -- META   "dependencies": {
 -- META     "lakehouse": {
--- META       "default_lakehouse": "ea1413be-9e7a-457a-b33d-704607d76ee0",
+-- META       "default_lakehouse": "a9fd6eed-de34-409c-a1dd-d95e07a92547",
 -- META       "default_lakehouse_name": "OpenTableLakehouse",
--- META       "default_lakehouse_workspace_id": "5fe25e1a-c0df-4de1-80cd-41e83e5ebe9b",
+-- META       "default_lakehouse_workspace_id": "0124376e-5292-4b74-818f-15027d6c9f03",
 -- META       "known_lakehouses": [
 -- META         {
--- META           "id": "ea1413be-9e7a-457a-b33d-704607d76ee0"
+-- META           "id": "a9fd6eed-de34-409c-a1dd-d95e07a92547"
 -- META         }
 -- META       ]
 -- META     }
@@ -23,7 +23,7 @@
 -- CELL ********************
 
 -- MAGIC %%pyspark
--- MAGIC df = spark.read.format("csv").option("header","true").option("delimiter", ";").load("Files/DynamicsData/SalesData/Year=2020/Month=09/Day=27/SalesData_20200927.csv")
+-- MAGIC df = spark.read.format("csv").option("header","true").option("delimiter", ";").load("Files/SalesData/Year=2020/Month=09/Day=27/SalesData_20200927.csv")
 -- MAGIC # df now is a Spark DataFrame containing CSV data from "Files/DynamicsData/SalesData/Year=2020/Month=09/Day=27/SalesData_20200927.csv".
 -- MAGIC df.createOrReplaceTempView("sales")
 
@@ -108,7 +108,7 @@ DESCRIBE HISTORY dynamicsales
 -- CELL ********************
 
 -- MAGIC %%pyspark
--- MAGIC dfday2 = spark.read.format("csv").option("header","true").option("delimiter", ";").load("Files/DynamicsData/SalesData/Year=2020/Month=09/Day=28/SalesData_20200928.csv")
+-- MAGIC dfday2 = spark.read.format("csv").option("header","true").option("delimiter", ";").load("Files/SalesData/Year=2020/Month=09/Day=28/SalesData_20200928.csv")
 -- MAGIC # df now is a Spark DataFrame containing CSV data from "Files/DynamicsData/SalesData/Year=2020/Month=09/Day=27/SalesData_20200927.csv".
 -- MAGIC dfday2.createOrReplaceTempView("salesday2")
 
