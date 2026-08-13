@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "name": "salesstarschema",
+    "path": "/Files",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "0ed5d12b-0b27-4e86-9eed-e3028c0a2f55",
+        "location": "https://interpdatalakestg.dfs.core.windows.net",
+        "subpath": "/salesstarschema"
+      }
+    }
+  },
+  {
+    "name": "salesdata",
+    "path": "/Files",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "0ed5d12b-0b27-4e86-9eed-e3028c0a2f55",
+        "location": "https://interpdatalakestg.dfs.core.windows.net",
+        "subpath": "/raw/DynamicsData/SalesData/Year=2020/Month=09/Day=27"
+      }
+    }
+  },
+  {
+    "name": "Sales",
+    "path": "/Files",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "0ed5d12b-0b27-4e86-9eed-e3028c0a2f55",
+        "location": "https://interpdatalakestg.dfs.core.windows.net",
+        "subpath": "/raw/Sales"
+      }
+    }
+  }
+]

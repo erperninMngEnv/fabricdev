@@ -1,42 +1,33 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/dataSource/1.0.0/schema.json",
-  "artifactId": "f34c66e1-3bd2-92f1-45e5-8666c11c234e",
+  "artifactId": "cdd6535b-eaf6-92e2-4c8e-59dd6b6b551d",
   "workspaceId": "00000000-0000-0000-0000-000000000000",
   "dataSourceInstructions": null,
   "displayName": "SalesModel",
   "type": "semantic_model",
   "userDescription": null,
   "metadata": {
-    "csdl_relationships": "[{\"FromTable\":\"freceiptline\",\"FromColumn\":\"CustomerKey\",\"ToTable\":\"dcustomer\",\"ToColumn\":\"CustomerKey\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"freceiptline\",\"FromColumn\":\"ProductKey\",\"ToTable\":\"dproduct\",\"ToColumn\":\"ProductKey\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"freceiptline\",\"FromColumn\":\"OrderDateKey\",\"ToTable\":\"ddate\",\"ToColumn\":\"DateKey\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"}]"
+    "csdl_relationships": "[{\"FromTable\":\"factReceiptline\",\"FromColumn\":\"CustomerKey\",\"ToTable\":\"dimCustomer\",\"ToColumn\":\"CustomerKey\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"factReceiptline\",\"FromColumn\":\"OrderDateKey\",\"ToTable\":\"dimDate\",\"ToColumn\":\"DateKey\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"factReceiptline\",\"FromColumn\":\"ProductKey\",\"ToTable\":\"dimProduct\",\"ToColumn\":\"ProductKey\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"}]"
   },
   "elements": [
     {
-      "id": "3550b1cf-2ced-4e17-b8a3-3b0b8ea5fd95",
+      "id": "29e6850d-12c3-4adb-938e-5aa45fc29f7c",
       "is_selected": true,
-      "display_name": "dcustomer",
+      "display_name": "dimCustomer",
       "type": "semantic_model.table",
-      "description": null,
+      "description": "dimCustomer: An SCD Type 2 customer dimension containing one row per customer per historical version. Stores customer identity (CustomerID, CustomerName), segmentation (CustomerSegmentName), geographic hierarchy (Country → Region → State → City → PostalCode), and change-tracking columns (IsCurrent, ValidFrom, ValidTo). Used as the primary customer dimension across fact tables to enable customer-level filtering, geographic analysis, and point-in-time reporting.",
       "children": [
         {
-          "id": "1c8fb77e-51d3-4fde-a018-d76fa37fc62d",
+          "id": "81d2c801-1220-4cb4-b77d-0c65482d7b6f",
           "is_selected": true,
-          "display_name": "CustomerCityName",
+          "display_name": "CustomerKey",
           "type": "semantic_model.column",
-          "data_type": "String",
+          "data_type": "Int64",
           "description": null,
           "children": []
         },
         {
-          "id": "d81c31c3-2464-4eb8-a4bc-38e30453264c",
-          "is_selected": true,
-          "display_name": "CustomerCountryName",
-          "type": "semantic_model.column",
-          "data_type": "String",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "6e53b138-94ef-4bfb-9491-f2d6292d854d",
+          "id": "16861494-8f11-412f-bdc2-6aecbe2f2cd0",
           "is_selected": true,
           "display_name": "CustomerID",
           "type": "semantic_model.column",
@@ -45,16 +36,7 @@
           "children": []
         },
         {
-          "id": "adeb8514-7d45-4175-bdfe-757bef77150d",
-          "is_selected": true,
-          "display_name": "CustomerKey",
-          "type": "semantic_model.column",
-          "data_type": "Int64",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "4a5b8927-52d8-4eb7-b045-4f26c556e2ee",
+          "id": "7df8dc13-c1a2-40c2-9b4e-91dcc700995f",
           "is_selected": true,
           "display_name": "CustomerName",
           "type": "semantic_model.column",
@@ -63,25 +45,7 @@
           "children": []
         },
         {
-          "id": "afc74182-390f-40a5-b8fe-fc98367046c8",
-          "is_selected": true,
-          "display_name": "CustomerPostalCode",
-          "type": "semantic_model.column",
-          "data_type": "String",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "7331d9bf-704c-4321-8bcb-f55c7bf99bc0",
-          "is_selected": true,
-          "display_name": "CustomerRegionName",
-          "type": "semantic_model.column",
-          "data_type": "String",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "61ab20ed-07c7-429d-b903-f95a1467e65b",
+          "id": "db639d3d-0f58-4d5f-9b98-c21192ccfbf4",
           "is_selected": true,
           "display_name": "CustomerSegmentName",
           "type": "semantic_model.column",
@@ -90,7 +54,25 @@
           "children": []
         },
         {
-          "id": "4cec397a-757c-434d-9a39-aa17bc6ce305",
+          "id": "cb1ed27f-899a-44c1-b2b8-3311c28d0741",
+          "is_selected": true,
+          "display_name": "CustomerCountryName",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "481ed0d7-59aa-4f94-b57e-7835ffd6ff42",
+          "is_selected": true,
+          "display_name": "CustomerCityName",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1119a8da-7be9-4cfe-9b4a-8bd7aa59d8e8",
           "is_selected": true,
           "display_name": "CustomerStateName",
           "type": "semantic_model.column",
@@ -99,16 +81,25 @@
           "children": []
         },
         {
-          "id": "a341ced1-c01d-4368-9097-23ef50767049",
+          "id": "fc1ba82d-a6d2-4752-b8c3-6969cc2ebfd2",
           "is_selected": true,
-          "display_name": "InsertDate",
+          "display_name": "CustomerRegionName",
           "type": "semantic_model.column",
-          "data_type": "DateTime",
+          "data_type": "String",
           "description": null,
           "children": []
         },
         {
-          "id": "99ca3c60-9760-4d36-90cd-8bf7e5a381de",
+          "id": "137f56f0-6dc3-4cb9-a05e-654fa0787bff",
+          "is_selected": true,
+          "display_name": "CustomerPostalCode",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "92623923-08a4-40b3-a70f-55f070c8066c",
           "is_selected": true,
           "display_name": "IsCurrent",
           "type": "semantic_model.column",
@@ -117,16 +108,7 @@
           "children": []
         },
         {
-          "id": "3b743324-77b5-4647-b5b9-41fd15cff1c3",
-          "is_selected": true,
-          "display_name": "UpdateDate",
-          "type": "semantic_model.column",
-          "data_type": "DateTime",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "21863d74-750d-4d81-a68b-36dbb3ad9776",
+          "id": "2d9bb715-8af8-4fe5-b52d-9904481720b0",
           "is_selected": true,
           "display_name": "ValidFrom",
           "type": "semantic_model.column",
@@ -135,9 +117,27 @@
           "children": []
         },
         {
-          "id": "45e15bb5-965d-405e-be03-e5f3feb333c6",
+          "id": "3416e294-e735-45b0-bae3-068d6f777b65",
           "is_selected": true,
           "display_name": "ValidTo",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f6cfb16e-b253-4460-86a3-350145c34db2",
+          "is_selected": true,
+          "display_name": "InsertDate",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "44f8bb83-7dd8-4175-a71c-1ed4a47d600b",
+          "is_selected": true,
+          "display_name": "UpdateDate",
           "type": "semantic_model.column",
           "data_type": "DateTime",
           "description": null,
@@ -146,23 +146,14 @@
       ]
     },
     {
-      "id": "7e8b8547-0c92-4e4c-9d13-5b53b09c9277",
+      "id": "8552cb5c-e83e-4327-9ccc-bc7a88d07c17",
       "is_selected": true,
-      "display_name": "ddate",
+      "display_name": "dimDate",
       "type": "semantic_model.table",
-      "description": null,
+      "description": "A conformed date dimension containing one row per calendar date. Stores calendar attributes (year, quarter, month, week, day), fiscal calendar mappings, working-day flags, public holidays, display labels, and relative-date offsets. Used as the primary time dimension across all fact tables to enable time-based filtering, trending, and period comparisons.",
       "children": [
         {
-          "id": "82c96bbf-d508-4c72-9e42-5b4130f0f29a",
-          "is_selected": true,
-          "display_name": "Date",
-          "type": "semantic_model.column",
-          "data_type": "DateTime",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "95d5afb2-13f6-4406-8e6e-d6b65b6ee296",
+          "id": "0fe2762f-b82e-4cfd-b70c-bcd086ded82c",
           "is_selected": true,
           "display_name": "DateKey",
           "type": "semantic_model.column",
@@ -171,7 +162,16 @@
           "children": []
         },
         {
-          "id": "20eb6511-5d57-453e-8b00-0ed4eb982ced",
+          "id": "654e950c-f9bd-437b-aa32-e24af11ffcd6",
+          "is_selected": true,
+          "display_name": "Date",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "701cf825-e39f-41ac-9b25-38a638829f3c",
           "is_selected": true,
           "display_name": "Day",
           "type": "semantic_model.column",
@@ -180,16 +180,7 @@
           "children": []
         },
         {
-          "id": "ad9bb5c0-cc8d-4760-b259-4cebfba505a5",
-          "is_selected": true,
-          "display_name": "DayOfYear",
-          "type": "semantic_model.column",
-          "data_type": "Int64",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "cc148058-956e-4f7d-a6bc-792aa35a17e5",
+          "id": "292e4454-93c1-4914-acfe-b4f66bda361c",
           "is_selected": true,
           "display_name": "DaySuffix",
           "type": "semantic_model.column",
@@ -198,151 +189,7 @@
           "children": []
         },
         {
-          "id": "93b1f142-c954-498b-b902-355a8db756c2",
-          "is_selected": true,
-          "display_name": "DOWInMonth",
-          "type": "semantic_model.column",
-          "data_type": "Int64",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "238e764d-11c4-4656-a593-3fae443bc806",
-          "is_selected": true,
-          "display_name": "FirstDayOfMonth",
-          "type": "semantic_model.column",
-          "data_type": "DateTime",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "285b60a2-cf61-4a97-98d5-fb7bfbe71b4a",
-          "is_selected": true,
-          "display_name": "FirstDayOfNextMonth",
-          "type": "semantic_model.column",
-          "data_type": "DateTime",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "e1018ddc-1094-456f-9f46-131b9c4ebf8c",
-          "is_selected": true,
-          "display_name": "FirstDayOfNextYear",
-          "type": "semantic_model.column",
-          "data_type": "DateTime",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "9b23600a-dc5e-43a8-b40b-b7d98f43d8e1",
-          "is_selected": true,
-          "display_name": "FirstDayOfQuarter",
-          "type": "semantic_model.column",
-          "data_type": "DateTime",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "46f4cdbf-50c1-43bc-8e39-213d671efea3",
-          "is_selected": true,
-          "display_name": "FirstDayOfYear",
-          "type": "semantic_model.column",
-          "data_type": "DateTime",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "46c5a6e3-07c7-4452-89de-95b718cfbbb1",
-          "is_selected": true,
-          "display_name": "ISOWeekOfYear",
-          "type": "semantic_model.column",
-          "data_type": "Int64",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "76d7c9be-338e-4ceb-a9ba-555e0618a2d6",
-          "is_selected": true,
-          "display_name": "LastDayOfMonth",
-          "type": "semantic_model.column",
-          "data_type": "DateTime",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "1917b35b-c34e-47cc-812d-5e4bcb4f3a84",
-          "is_selected": true,
-          "display_name": "LastDayOfQuarter",
-          "type": "semantic_model.column",
-          "data_type": "DateTime",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "3897dcb4-3e36-45ea-b0ee-aee57829cd13",
-          "is_selected": true,
-          "display_name": "LastDayOfYear",
-          "type": "semantic_model.column",
-          "data_type": "DateTime",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "4b270abb-45d7-4189-8c8e-971026a749f9",
-          "is_selected": true,
-          "display_name": "MMYYYY",
-          "type": "semantic_model.column",
-          "data_type": "String",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "c70297f9-0a90-4be0-94a8-26c09414056a",
-          "is_selected": true,
-          "display_name": "Month",
-          "type": "semantic_model.column",
-          "data_type": "Int64",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "243a8135-c9ac-44a0-b112-24d38fdb0d3f",
-          "is_selected": true,
-          "display_name": "MonthName",
-          "type": "semantic_model.column",
-          "data_type": "String",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "92d8c7b1-7738-48c1-aabe-1f781f977ea7",
-          "is_selected": true,
-          "display_name": "MonthYear",
-          "type": "semantic_model.column",
-          "data_type": "String",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "95a0f83b-a97f-4ae1-b7f6-e271f5beb804",
-          "is_selected": true,
-          "display_name": "Quarter",
-          "type": "semantic_model.column",
-          "data_type": "Int64",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "0f3ce465-6069-4284-98e1-3ce80aadf8cd",
-          "is_selected": true,
-          "display_name": "QuarterName",
-          "type": "semantic_model.column",
-          "data_type": "String",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "b143c8ff-36cc-4b31-a53d-6ba7c538f28f",
+          "id": "bd991090-5ca7-4310-b38a-94940221d0da",
           "is_selected": true,
           "display_name": "Weekday",
           "type": "semantic_model.column",
@@ -351,7 +198,7 @@
           "children": []
         },
         {
-          "id": "2ce0a2a2-df54-4dc1-8f12-ffa8798872f8",
+          "id": "345148c5-6764-48c0-a977-252d98ce2c89",
           "is_selected": true,
           "display_name": "WeekDayName",
           "type": "semantic_model.column",
@@ -360,7 +207,25 @@
           "children": []
         },
         {
-          "id": "d56acfc5-2032-4860-9efe-d19ed768a116",
+          "id": "8e530a15-54b3-4c8d-a964-be93e551cd21",
+          "is_selected": true,
+          "display_name": "DOWInMonth",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a36372ea-9780-470a-8e09-aad9932c650c",
+          "is_selected": true,
+          "display_name": "DayOfYear",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d636a3c6-370f-4e8b-9327-d0e08a5a35e8",
           "is_selected": true,
           "display_name": "WeekOfMonth",
           "type": "semantic_model.column",
@@ -369,7 +234,7 @@
           "children": []
         },
         {
-          "id": "1b29901e-7afe-40df-b230-24cf70cdd413",
+          "id": "53221dc9-4ac3-49bd-8172-206570cff632",
           "is_selected": true,
           "display_name": "WeekOfYear",
           "type": "semantic_model.column",
@@ -378,52 +243,169 @@
           "children": []
         },
         {
-          "id": "f99650dc-1c9e-42c1-9b81-668e43b0a67b",
+          "id": "cfb9f0f9-f940-43db-90cf-f5b39a7898d2",
           "is_selected": true,
-          "display_name": "Year",
-          "type": "semantic_model.column",
-          "data_type": "Int64",
-          "description": null,
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": "8b909b31-3471-4618-87f8-9161d355dc96",
-      "is_selected": true,
-      "display_name": "dproduct",
-      "type": "semantic_model.table",
-      "description": null,
-      "children": [
-        {
-          "id": "a1ea1522-6e45-4805-99db-38c411a171af",
-          "is_selected": true,
-          "display_name": "InsertDate",
-          "type": "semantic_model.column",
-          "data_type": "DateTime",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "d9fdc1e0-c820-43ea-b195-ae5f3832ae18",
-          "is_selected": true,
-          "display_name": "IsCurrent",
+          "display_name": "ISOWeekOfYear",
           "type": "semantic_model.column",
           "data_type": "Int64",
           "description": null,
           "children": []
         },
         {
-          "id": "a79d5a81-1670-433e-9172-6ab0072705b0",
+          "id": "ddc029c8-927e-4f3b-be6f-227f7a05d4c1",
           "is_selected": true,
-          "display_name": "ProductCategoryName",
+          "display_name": "Month",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b4eeebd5-201f-464c-ac86-6a9bff077219",
+          "is_selected": true,
+          "display_name": "MonthName",
           "type": "semantic_model.column",
           "data_type": "String",
           "description": null,
           "children": []
         },
         {
-          "id": "7e52ef33-05f0-45db-849f-f2df8757b81b",
+          "id": "8317aa81-4c3f-44dc-9d38-3e52fe9dacea",
+          "is_selected": true,
+          "display_name": "Quarter",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9699f2a4-2623-4e51-b7c8-d8ae5b54601f",
+          "is_selected": true,
+          "display_name": "QuarterName",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "68a63a7f-fbf2-45ce-b183-b1a55bd0416b",
+          "is_selected": true,
+          "display_name": "Year",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2efd82d0-2326-4dd8-b32c-c5efa6d887f4",
+          "is_selected": true,
+          "display_name": "MMYYYY",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b01438cf-6eb9-45d6-bf62-d65be637d206",
+          "is_selected": true,
+          "display_name": "MonthYear",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2a0254cc-fada-4562-af79-c26335044398",
+          "is_selected": true,
+          "display_name": "FirstDayOfMonth",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "fb6b75d9-4b08-482c-839c-c4cddab7532a",
+          "is_selected": true,
+          "display_name": "LastDayOfMonth",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9eb7e18f-88e2-4a38-a826-2ba977dbdb31",
+          "is_selected": true,
+          "display_name": "FirstDayOfQuarter",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "70c2c6dc-e626-4857-a6c5-91b4b51a5570",
+          "is_selected": true,
+          "display_name": "LastDayOfQuarter",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0739f11a-604a-49ea-8024-d3f730e35621",
+          "is_selected": true,
+          "display_name": "FirstDayOfYear",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2d0f41a4-1021-4bf0-a05d-c5ac753eccc8",
+          "is_selected": true,
+          "display_name": "LastDayOfYear",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "735a4ae6-2425-4131-b1e9-079880d3ef5e",
+          "is_selected": true,
+          "display_name": "FirstDayOfNextMonth",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "613716fb-5e5d-44b3-9104-4d111f24322b",
+          "is_selected": true,
+          "display_name": "FirstDayOfNextYear",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "bfe831b9-eb5a-4290-82e7-f38fa9ea2eb5",
+      "is_selected": true,
+      "display_name": "dimProduct",
+      "type": "semantic_model.table",
+      "description": "Product Dimension: A structured set of attributes describing products (e.g., Category, SubCategory and Name) used to provide context for analytical data and enable filtering, grouping, and hierarchical analysis.",
+      "children": [
+        {
+          "id": "9da9cc48-d3e5-48bc-8e50-8ec7f85a1e69",
+          "is_selected": true,
+          "display_name": "ProductKey",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "05af0c4d-6fb8-41fd-b280-142e89847a8e",
           "is_selected": true,
           "display_name": "ProductId",
           "type": "semantic_model.column",
@@ -432,16 +414,7 @@
           "children": []
         },
         {
-          "id": "748c0511-4422-4a8f-8e84-af2e1d48764d",
-          "is_selected": true,
-          "display_name": "ProductKey",
-          "type": "semantic_model.column",
-          "data_type": "Int64",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "51c39693-3e39-4b4a-b566-ced447868c09",
+          "id": "f4631dde-4193-4c8c-8561-8b84f14a682c",
           "is_selected": true,
           "display_name": "ProductName",
           "type": "semantic_model.column",
@@ -450,7 +423,16 @@
           "children": []
         },
         {
-          "id": "39d2882d-5439-4c59-9ea3-bf0d65772239",
+          "id": "5f1571fe-31ba-44d3-b0fd-a4dd0580c10c",
+          "is_selected": true,
+          "display_name": "ProductCategoryName",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "cc1b2d0c-7548-4cf7-a10b-ee34206e0f72",
           "is_selected": true,
           "display_name": "ProductSubCategoryName",
           "type": "semantic_model.column",
@@ -459,16 +441,16 @@
           "children": []
         },
         {
-          "id": "a5a6e7a1-72a5-4a93-8489-dc9f2c780ff5",
+          "id": "32e65ef0-3d31-41c6-916b-9685cf7fbd2d",
           "is_selected": true,
-          "display_name": "UpdateDate",
+          "display_name": "IsCurrent",
           "type": "semantic_model.column",
-          "data_type": "DateTime",
+          "data_type": "Int64",
           "description": null,
           "children": []
         },
         {
-          "id": "1b0fa53a-7c4d-48c1-965b-94129d6d7130",
+          "id": "9a3ddcd0-697c-4f25-a466-ef6b2280c848",
           "is_selected": true,
           "display_name": "ValidFrom",
           "type": "semantic_model.column",
@@ -477,52 +459,16 @@
           "children": []
         },
         {
-          "id": "10d34b0e-ccbd-4c0d-a0aa-75f7fad76c99",
+          "id": "60ae1b33-51fb-4361-9ae8-6f55d89092e5",
           "is_selected": true,
           "display_name": "ValidTo",
           "type": "semantic_model.column",
           "data_type": "DateTime",
           "description": null,
           "children": []
-        }
-      ]
-    },
-    {
-      "id": "7ecfd18c-8089-4b26-81ff-e8d5432f6348",
-      "is_selected": true,
-      "display_name": "freceiptline",
-      "type": "semantic_model.table",
-      "description": null,
-      "children": [
-        {
-          "id": "66de65d8-daa9-49d9-a42e-446b4f85f9e3",
-          "is_selected": true,
-          "display_name": "CustomerKey",
-          "type": "semantic_model.column",
-          "data_type": "Int64",
-          "description": null,
-          "children": []
         },
         {
-          "id": "c87f431f-a117-49c2-9719-7ceb368933da",
-          "is_selected": true,
-          "display_name": "DiscountAmountUSD",
-          "type": "semantic_model.column",
-          "data_type": "Double",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "15800760-db51-43ac-ada2-5fb425f4eb16",
-          "is_selected": true,
-          "display_name": "DiscountPercentage",
-          "type": "semantic_model.column",
-          "data_type": "Double",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "69216169-17fc-421d-a9f3-3ecf32772996",
+          "id": "7339f89e-5810-45a1-a5b4-7b672e38232a",
           "is_selected": true,
           "display_name": "InsertDate",
           "type": "semantic_model.column",
@@ -531,52 +477,25 @@
           "children": []
         },
         {
-          "id": "9b1c2290-6fca-4171-a1e4-04af2d48b18b",
+          "id": "55f28154-d0e3-4a84-9434-55570011e7bd",
           "is_selected": true,
-          "display_name": "OrderDateKey",
+          "display_name": "UpdateDate",
           "type": "semantic_model.column",
-          "data_type": "Int64",
+          "data_type": "DateTime",
           "description": null,
           "children": []
-        },
+        }
+      ]
+    },
+    {
+      "id": "c8ab0ac4-cbc0-4c7b-9e24-85deec886cae",
+      "is_selected": true,
+      "display_name": "factReceiptline",
+      "type": "semantic_model.table",
+      "description": "factReceiptLine: A transactional fact table storing sales data at the receipt line level. Each row represents one item sold on a receipt, containing measures (DiscountAmount, DiscountPercentage, ProfitAmount, Quantity, SalesAmount) and foreign keys to dimensions (product, date, customer). Grain: one row per receipt line item.",
+      "children": [
         {
-          "id": "9198c3fb-0c9f-48c8-8132-78452de1c227",
-          "is_selected": true,
-          "display_name": "OrderNumber",
-          "type": "semantic_model.column",
-          "data_type": "String",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "c46d2818-894d-4aeb-b233-e68dd40175e9",
-          "is_selected": true,
-          "display_name": "ProductKey",
-          "type": "semantic_model.column",
-          "data_type": "Int64",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "ee0aabc4-b740-4a0d-bdf2-8436b5b96828",
-          "is_selected": true,
-          "display_name": "ProfitAmountUSD",
-          "type": "semantic_model.column",
-          "data_type": "Double",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "a2056d9c-8a69-4d3b-971c-ac0107eaeff4",
-          "is_selected": true,
-          "display_name": "Quantity",
-          "type": "semantic_model.column",
-          "data_type": "Double",
-          "description": null,
-          "children": []
-        },
-        {
-          "id": "10d48f49-037a-42ae-97df-f65f94e9e473",
+          "id": "aa39d506-30b4-4fc3-82e6-771a2fe02635",
           "is_selected": true,
           "display_name": "ReceiptLineId",
           "type": "semantic_model.column",
@@ -585,16 +504,25 @@
           "children": []
         },
         {
-          "id": "bee6b8b0-ac99-4b3b-9af7-de6fb2ef42f1",
+          "id": "1f68c078-b19e-462d-8762-3bd55a0c9375",
           "is_selected": true,
-          "display_name": "SalesAmountUSD",
+          "display_name": "OrderNumber",
           "type": "semantic_model.column",
-          "data_type": "Double",
+          "data_type": "String",
           "description": null,
           "children": []
         },
         {
-          "id": "bb430d5c-faed-4b8c-9109-0ee3c9593f75",
+          "id": "c65d4071-5133-45be-a8a6-48153ccdc18e",
+          "is_selected": true,
+          "display_name": "OrderDateKey",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "62fbb4d3-a89b-42bc-802a-5c743cbf8d04",
           "is_selected": true,
           "display_name": "ShipDateKey",
           "type": "semantic_model.column",
@@ -603,7 +531,79 @@
           "children": []
         },
         {
-          "id": "e303cc62-f7b3-4dac-b137-e90160fe95d0",
+          "id": "6e442d38-1aa1-4da4-9884-ac9dac509481",
+          "is_selected": true,
+          "display_name": "CustomerKey",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8d969f70-7206-40a8-a044-36bc90f745d6",
+          "is_selected": true,
+          "display_name": "ProductKey",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "74f3c7fd-b421-41d6-a1c2-3957e4f35cb6",
+          "is_selected": true,
+          "display_name": "SalesAmountUSD",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "796b13ea-e6bc-47aa-a5f5-b99559b7d8f1",
+          "is_selected": true,
+          "display_name": "DiscountAmountUSD",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "83f883a3-101e-421f-b956-69bd78114c29",
+          "is_selected": true,
+          "display_name": "ProfitAmountUSD",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8908f6d1-7e15-4c7b-b595-ad27e29e566b",
+          "is_selected": true,
+          "display_name": "DiscountPercentage",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ed1ea9c8-1b83-4a1a-a998-26beafe87b81",
+          "is_selected": true,
+          "display_name": "Quantity",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "bf244a99-0b06-4811-b646-8daa08495ac8",
+          "is_selected": true,
+          "display_name": "InsertDate",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c9a387e9-cfcd-480f-8acd-36f29d597577",
           "is_selected": true,
           "display_name": "UpdateDate",
           "type": "semantic_model.column",

@@ -1,0 +1,112 @@
+/// Product Dimension: A structured set of attributes describing products (e.g., Category, SubCategory and Name) used to provide context for analytical data and enable filtering, grouping, and hierarchical analysis.
+table dimProduct
+	lineageTag: bfe831b9-eb5a-4290-82e7-f38fa9ea2eb5
+	sourceLineageTag: [dbo].[dproduct]
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 9da9cc48-d3e5-48bc-8e50-8ec7f85a1e69
+		sourceLineageTag: ProductKey
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductId
+		dataType: string
+		lineageTag: 05af0c4d-6fb8-41fd-b280-142e89847a8e
+		sourceLineageTag: ProductId
+		summarizeBy: none
+		sourceColumn: ProductId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: f4631dde-4193-4c8c-8561-8b84f14a682c
+		sourceLineageTag: ProductName
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryName
+		dataType: string
+		lineageTag: 5f1571fe-31ba-44d3-b0fd-a4dd0580c10c
+		sourceLineageTag: ProductCategoryName
+		summarizeBy: none
+		sourceColumn: ProductCategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubCategoryName
+		dataType: string
+		lineageTag: cc1b2d0c-7548-4cf7-a10b-ee34206e0f72
+		sourceLineageTag: ProductSubCategoryName
+		summarizeBy: none
+		sourceColumn: ProductSubCategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCurrent
+		dataType: int64
+		formatString: 0
+		lineageTag: 32e65ef0-3d31-41c6-916b-9685cf7fbd2d
+		sourceLineageTag: IsCurrent
+		summarizeBy: none
+		sourceColumn: IsCurrent
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValidFrom
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9a3ddcd0-697c-4f25-a466-ef6b2280c848
+		sourceLineageTag: ValidFrom
+		summarizeBy: none
+		sourceColumn: ValidFrom
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValidTo
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 60ae1b33-51fb-4361-9ae8-6f55d89092e5
+		sourceLineageTag: ValidTo
+		summarizeBy: none
+		sourceColumn: ValidTo
+
+		annotation SummarizationSetBy = Automatic
+
+	column InsertDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7339f89e-5810-45a1-a5b4-7b672e38232a
+		sourceLineageTag: InsertDate
+		summarizeBy: none
+		sourceColumn: InsertDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column UpdateDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 55f28154-d0e3-4a84-9434-55570011e7bd
+		sourceLineageTag: UpdateDate
+		summarizeBy: none
+		sourceColumn: UpdateDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimProduct = entity
+		mode: directLake
+		source
+			entityName: dproduct
+			schemaName: dbo
+			expressionSource: 'DirectLake - SalesReportLakehouse'
+
+	changedProperty = Name
+
+	changedProperty = Description
+

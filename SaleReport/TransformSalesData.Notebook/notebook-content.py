@@ -8,9 +8,14 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "15afd258-567d-4aba-8f58-d35969180b12",
-# META       "default_lakehouse_name": "LakehouseDemoDevOps",
-# META       "default_lakehouse_workspace_id": "ed6ba6c8-3d48-416a-badb-996fe11d7058"
+# META       "default_lakehouse": "d1d1d67e-45c8-4e60-a2fe-5eaa72c79eb5",
+# META       "default_lakehouse_name": "SalesReportLakehouse",
+# META       "default_lakehouse_workspace_id": "b58bbd7c-1ba0-4a4a-a53e-4d962ec92ad5",
+# META       "known_lakehouses": [
+# META         {
+# META           "id": "d1d1d67e-45c8-4e60-a2fe-5eaa72c79eb5"
+# META         }
+# META       ]
 # META     }
 # META   }
 # META }
@@ -41,7 +46,7 @@ from pyspark.sql.types import DecimalType, StringType, IntegerType, DateType
 
 # Welcome to your new notebook
 # Type here in the cell editor to add code!
-df = (spark.read.format("csv").option("header","true").option("delimiter",";").load("Files/SalesData_20200927.csv")
+df = (spark.read.format("csv").option("header","true").option("delimiter",";").load("Files/salesdata/SalesData_20200927.csv")
         .select(col("Row ID").alias("RowID"), 
                 col("Order ID").alias("OrderID"),
                 col("Order Date").alias("OrderDate").cast(DateType()),
@@ -91,7 +96,6 @@ df.write.format("delta").mode("overwrite").saveAsTable("SalesData")
 
 # CELL ********************
 
-print("this is the new code")
 
 # METADATA ********************
 

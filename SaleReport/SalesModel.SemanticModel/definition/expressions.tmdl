@@ -1,9 +1,0 @@
-expression 'DirectLake - SalesReportLakehouse' =
-		let
-		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/6844ef1a-9c30-440e-9a7e-9b7271be6a0b/f91e95a3-4f99-4a56-895e-f7b48c5833d2", [HierarchicalNavigation=true])
-		in
-		    Source
-	lineageTag: ae923d52-a8b8-43ea-9c3b-87651c3656e9
-
-	annotation PBI_IncludeFutureArtifacts = False
-
